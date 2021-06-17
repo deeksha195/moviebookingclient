@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .box {
+        float: left;
+        width: 46%;
+        padding: 50px;
+        height: 500px;
+        margin: 20px;
+      }
+      img {
+        width: 100%;
+        height: 500px;
+        margin: 30px;
+        margin-left: 0px;
+      }
+
+      .clearfix::after {
+        content: "";
+        clear: both;
+        display: table;
+      }
+      .title {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        cursor: pointer;
+        margin-top: 5px;
+      }
+      .titleText1 {
+        color: #111;
+        font-size: 50px;
+        font-weight: 500;
+        margin-top: 2px;
+      }
+      .titleText1 span {
+        color: rgb(169, 169, 230);
+        font-weight: 500;
+        font-size: 150px;
+        font-family: sans-serif;
+      }
+      .titleText1 p {
+        font-size: 30px;
+        font-family: "Times New Roman", Times, serif;
+      }
+      @import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap");
+      * {
+        margin: 0;
+        padding: 0;
+        outline: none;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      @media (max-width: 700px) {
+        .container .text {
+          font-size: 30px;
+        }
+        .container form {
+          padding: 10px 0 0 0;
+        }
+        .container form .form-row {
+          display: block;
+        }
+        form .form-row .input-data {
+          margin: 35px 0 !important;
+        }
+        .submit-btn .input-data {
+          width: 40% !important;
+        }
+      }
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 40px 100px;
+        z-index: 1000;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: 0.5s;
+      }
+
+    header.sticky{
+     background: #fff;
+     padding: 10px 100px;
+     box-shadow:0 5px 20px rgba(0,0,0,0.05);
+     }
+
+      header .logo {
+        color: rgb(5, 5, 5);
+        font-weight: 700;
+        font-size: 2em;
+        text-decoration: none;
+      }
+      .logo:hover {
+        color: rgb(165, 165, 230);
+      }
+      header.sticky .logo {
+        color: rgb(7, 7, 7);
+      }
+      header .logo span {
+        color: rgb(5, 5, 5);
+      }
+      span {
+        color: rgb(242, 242, 243);
+      }
+      header .navigation {
+        position: relative;
+        display: flex;
+      }
+      header .navigation li {
+        list-style: none;
+        margin-left: 30px;
+      }
+      header .navigation li a {
+        text-decoration: none;
+        color: rgb(0, 0, 0);
+        font-weight: 700;
+      }
+      header.sticky .navigation li a {
+        color: #111;
+        font-weight: 800;
+      }
+
+      header .navigation li a:hover {
+        color: rgb(169, 169, 230);
+      }
+
+      .row {
+        font-family: sans-serif;
+      }
+      .btn-home {
+        background-color: #000000;
+        padding: 0.6em 2em;
+        border-radius: 10px;
+        font-size: 1em;
+        font-weight: 600;
+        cursor: pointer;
+        color: #fff;
+        margin-left: 500px;
+      }
+      .btn-home:hover {
+        background-color: rgb(187, 187, 245);
+        color: #111;
+      }
+
+      .btn-home:active {
+        border: 0px solid rgb(187, 187, 245);
+      }
+
+      @media (max-width: 991px) {
+        header,
+        header.sticky {
+          padding: 10px 20px;
+        }
+        header .navigation {
+          display: none;
+        }
+        header .navigation.active {
+          width: 100%;
+          height: calc(100% - 68px);
+          position: fixed;
+          top: 68px;
+          left: 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          background: rgb(255, 255, 255);
+        }
+        header .navigation li {
+          margin-left: 0;
+        }
+        header .navigation li a {
+          font-size: 5em;
+          color: rgb(0, 0, 0);
+          margin: 20px;
+          padding: 20px;
+        }
+        .menuToggle {
+          position: relative;
+          width: 40px;
+          height: 40px;
+          background: url(menu.png);
+          background-size: 30px;
+          background-repeat: no-repeat;
+          background-position: center;
+          cursor: pointer;
+          background-color: rgb(2, 2, 2);
+        }
+        .menuToggle.active {
+          background: url(close.png);
+          background-size: 25px;
+          background-repeat: no-repeat;
+          background-position: center;
+        }
+        header.sticky .menuToggle {
+          filter: invert(1);
+        }
+        .box {
+          width: 95%;
+          font-size: 25px;
+          margin-left: 5px;
+        }
+        .titlebtn {
+          margin-top: 60px;
+        }
+      }
+      .btn {
+        font-size: 1em;
+        color: rgb(255, 255, 255);
+        background: linear-gradient(
+          115deg,
+          rgb(187, 187, 245) 10%,
+          #f09acf 90%
+        );
+        display: inline-block;
+        padding: 10px 30px;
+        margin-top: 20px;
+        margin-right: 500px;
+        text-transform: uppercase;
+        text-decoration: none;
+        letter-spacing: 2px;
+        transition: 0.5s;
+      }
+      .btn:hover {
+        letter-spacing: 6px;
+        color: #111;
+      }
+      .titlebtn {
+        margin-left: 100px;
+      }
+
+@media (max-width:991px){
+    .banner .content h2{
+        font-size: 2.2em;
+        color: #fff;
+    }
+}
+   
+
+    </style>
+  </head>
+  <body>
+    
+    <header>
+         <a href="#" class="logo">PopCorn<span>.</span></a>
+         <div class="menuToggle" onclick=" toggleMenu();"></div>
+         <ul class="navigation">
+            <li><a href="index.html" onclick=" toggleMenu();">Home</a></li>
+            <li><a href="abt.html" onclick=" toggleMenu();">About</a></li>
+            <li><a href="moviesname.html" onclick=" toggleMenu();">Upcoming Movies</a></li>
+            <li><a href="login.html" onclick=" toggleMenu();">Login/SignUp</a></li>
+            <li><a href="contact.html" onclick=" toggleMenu();">Contact Us</a></li>
+        </ul>
+    </header>
+
+    <div class="clearfix">
+      <div class="box">
+        <h2 class="titleText1"><span>A</span>bout us</h2>
+        <p>
+          <b>PopCorn Cinema</b> is an emerging entertainment company in the
+          field of booking online movie tickets in US. We pioneered cinema halls
+          in US by establishing the first multiplex cinema in 2001 and the
+          largest 9-screen multiplex cinema in 2007. With its head office in
+          Gwalior, ShowOnWheels is now serving the viewers of major US cities.
+        </p>
+        <br />
+
+        <p>
+          Waiting in queues to book tickets for your favorite movie is now a
+          matter of past. ShowOnWheels empowers you by offering a platform to
+          book movie tickets anywhere, anytime. Whether shopping in a mall,
+          enjoying a vacation at a Miami Beach, partying in a discotheque,
+          attending a conference, or taking your pet for a walk, ShowOnWheels is
+          there to reserve your hot seat in your favorite cinema.
+        </p>
+      </div>
+      <div class="box">
+        <img src="/asests/img/aboutImg.jpg" alt="imges" />
+      </div>
+    </div>
+    <div class="titlebtn">
+      <a href="booking.html" class="btn">Book From Here</a>
+    </div>
+
+    <script text="text/javascript">
+      window.addEventListener("scroll", function () {
+        const header = document.querySelector("header");
+        header.classList.toggle("sticky", window.scrollY > 0);
+      });
+      function toggleMenu() {
+        const menuToggle = document.querySelector(".menuToggle");
+        const navigation = document.querySelector(".navigation");
+        menuToggle.classList.toggle("active");
+        navigation.classList.toggle("active");
+      }
+    </script>
+  </body>
+</html>
