@@ -1,43 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Movie Booking</title>
-  <link rel="stylesheet" href="asests/css/style.css">
-</head>
-<body>
-     <header>
-         <a href="#" class="logo" style="color: white;">PopCorn<span style="color: white;">.</span></a>
-         <div class="menuToggle" onclick=" toggleMenu();"></div>
-         <ul class="navigation">
-            <li><a href="index.html" onclick=" toggleMenu();" style="color: white;" >Home</a></li>
-            <li><a href="abt.html" onclick=" toggleMenu();" style="color: white;">About</a></li>
-            <li><a href="moviesname.html" onclick=" toggleMenu();" style="color: white;">Upcoming Movies</a></li>
-            <li><a href="login.html" onclick=" toggleMenu();" style="color: white;">Login/SignUp</a></li>
-            <li><a href="contact.html" onclick=" toggleMenu();" style="color: white;">Contact Us</a></li>
-        </ul>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie Booking</title>
+    <link rel="stylesheet" href="asests/css/style.css" />
+  </head>
+
+  <body>
+    <header>
+      <a href="#" class="logo" style="color: white"
+        >PopCorn<span style="color: white">.</span></a
+      >
+      <div class="menuToggle" onclick=" toggleMenu();"></div>
+      <ul class="navigation">
+        <li>
+          <a href="index.html" onclick=" toggleMenu();" style="color: white"
+            >Home</a
+          >
+        </li>
+        <li>
+          <a href="abt.html" onclick=" toggleMenu();" style="color: white"
+            >About</a
+          >
+        </li>
+        <li>
+          <a
+            href="moviesname.html"
+            onclick=" toggleMenu();"
+            style="color: white"
+            >Upcoming Movies</a
+          >
+        </li>
+        <li>
+          <a href="login.html" onclick=" toggleMenu();" style="color: white"
+            >Login/SignUp</a
+          >
+        </li>
+        <li>
+          <a href="contact.html" onclick=" toggleMenu();" style="color: white"
+            >Contact Us</a
+          >
+        </li>
+      </ul>
     </header>
     <section class="banner" id="banner">
-        <div class="content">
-             <h2>Book Your Ticket<span>.</span></h2>
-             <p><b>From Here</b> </p>
-             <a href="booking.html" class="btn">click on it </a>
-        </div>
+      <div class="content">
+        <h2>Book Your Ticket<span>.</span></h2>
+        <p><b>From Here</b></p>
+        <a href="booking.html" class="btn">click on it </a>
+      </div>
     </section>
     <script text="text/javascript">
-     window.addEventListener('scroll',function(){
-         const header = document.querySelector('header');
-         header.classList.toggle("sticky",window.scrollY>0);
-     });
-      function toggleMenu(){
-        const menuToggle = document.querySelector('.menuToggle');
-        const navigation = document.querySelector('.navigation');
-        menuToggle.classList.toggle('active');
-        navigation.classList.toggle('active');
+      window.addEventListener("scroll", function () {
+        const header = document.querySelector("header");
+        header.classList.toggle("sticky", window.scrollY > 0);
+      });
+      function toggleMenu() {
+        const menuToggle = document.querySelector(".menuToggle");
+        const navigation = document.querySelector(".navigation");
+        menuToggle.classList.toggle("active");
+        navigation.classList.toggle("active");
       }
-     
-     </script>
-</body>
+    </script>
+    <style>
+      @media (max-width: 991px) {
+        header,
+        header.sticky {
+          padding: 10px 20px;
+        }
+
+        header .navigation {
+          display: none;
+        }
+
+        header .navigation.active {
+          width: 100%;
+          height: calc(100% - 68px);
+          position: fixed;
+          top: 68px;
+          left: 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          background: rgb(0, 0, 0);
+        }
+
+        header .navigation li {
+          margin-left: 0;
+        }
+
+        header .navigation li a {
+          font-size: 1.6em;
+        }
+
+        .menuToggle {
+          position: relative;
+          width: 40px;
+          height: 40px;
+          background: url("/asests/img/menu.png");
+          background-size: 30px;
+          background-repeat: no-repeat;
+          background-position: center;
+          cursor: pointer;
+        }
+
+        .menuToggle.active {
+          background: url("/asests/img/close.png");
+          background-size: 25px;
+          background-repeat: no-repeat;
+          background-position: center;
+        }
+
+        header.sticky .menuToggle {
+          filter: invert(1);
+        }
+
+      }
+    </style>
+  </body>
 </html>
